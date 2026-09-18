@@ -110,6 +110,17 @@ h2 { font-size: clamp(2.8rem, 5vw, 5rem); line-height: .98; margin-bottom: 0; }.
     gap: 36px;
     padding: 96px 20px 64px;
   }
+  .hero-video { display: none; }
+  .hero-poster { filter: saturate(.7) contrast(1.1) brightness(.42); }
+  .reveal,
+  [appReveal] {
+    transform: none;
+    transition: opacity .35s ease;
+  }
+  .hero-title.is-visible .hero-letter {
+    animation: heroLetterMobileReveal .35s ease both;
+    animation-delay: var(--hero-letter-delay, 0ms);
+  }
   .hero-copy { width: 100%; }
   .hero-title { font-size: clamp(3.2rem, 11vw, 6.8rem); line-height: .86; }
   .hero-text { max-width: 34rem; font-size: 16px; }
@@ -166,6 +177,11 @@ h2 { font-size: clamp(2.8rem, 5vw, 5rem); line-height: .98; margin-bottom: 0; }.
   .testimonial blockquote { margin: 36px auto 24px; font-size: clamp(1.55rem, 7vw, 2.2rem); }
   .final-cta { align-items: stretch; gap: 28px; padding: 72px 0 84px; }
   .final-cta .button { width: min(100%, 280px); }
+}
+
+@keyframes heroLetterMobileReveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @media (max-width: 360px) {
