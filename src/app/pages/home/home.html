@@ -1,0 +1,85 @@
+<section class="hero" id="sobre" appReveal>
+  <div class="hero-media" appReveal aria-hidden="true">
+    <img class="hero-poster" appReveal src="/video-home.png" alt="" />
+    <video class="hero-video" appReveal autoplay muted loop playsinline poster="/video-home.png">
+      <source src="/video-home.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="hero-copy" appReveal>
+    <p class="eyebrow" appReveal><span></span> {{ languageService.isEnglish() ? 'Strategy, design and technology' : 'Estratégia, design e tecnologia' }}</p>
+    <h1 class="hero-title" appReveal aria-label="Ideias que se tornam presença.">
+      <span class="hero-line hero-line--white">
+        @for (letter of heroFirstLine(); track $index) { <span class="hero-letter" [style.--hero-letter-delay]="$index * 45 + 'ms'">{{ letter }}</span> }&nbsp;
+      </span>
+      <span class="hero-line hero-line--second">
+        @for (letter of heroSecondLine(); track $index) { <span class="hero-letter" [style.--hero-letter-delay]="$index * 45 + 'ms'">{{ letter }}</span> }
+        @for (letter of heroAccent(); track $index) { <span class="hero-letter hero-letter--accent" [style.--hero-letter-delay]="(heroSecondLine().length + $index) * 45 + 'ms'">{{ letter }}</span> }
+      </span>
+    </h1>
+    <p class="hero-text" appReveal>{{ languageService.isEnglish() ? 'We create brands and digital experiences for businesses that want to be remembered, chosen and grow.' : 'Criamos marcas e experiências digitais para negócios que querem ser lembrados, escolhidos e crescer.' }}</p>
+    <div class="hero-actions" appReveal>
+      <a class="button button-dark" appReveal href="https://wa.me/5511958520419" target="_blank" rel="noopener">{{ languageService.isEnglish() ? 'Talk on WhatsApp' : 'Falar pelo WhatsApp' }} <span>&#8599;</span></a>
+      <a class="text-link" appReveal href="#contato">{{ languageService.isEnglish() ? 'Request a quote' : 'Solicitar orçamento' }} <span>&#8594;</span></a>
+    </div>
+  </div>
+
+</section>
+
+<section class="differentiators section-light" appReveal>
+  <div class="section-intro" appReveal>
+    <p class="eyebrow" appReveal><span></span> {{ languageService.isEnglish() ? 'What drives us' : 'O que nos move' }}</p>
+    <h2 appReveal>{{ languageService.isEnglish() ? 'Details make' : 'O detalhe faz' }}<br><strong>{{ languageService.isEnglish() ? 'all the difference.' : 'toda a diferença.' }}</strong></h2>
+  </div>
+  <div class="differentiator-list reveal-stagger">
+    @for (item of differentiators(); track item.title) {
+      <article class="differentiator" appReveal>
+        <div appReveal><h3 appReveal>{{ item.title }}</h3><p appReveal>{{ item.text }}</p></div>
+        <span class="item-arrow" appReveal>&#8599;</span>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="services" id="servicos" appReveal>
+  <div class="section-heading-row" appReveal>
+    <div appReveal><p class="eyebrow" appReveal><span></span> {{ languageService.isEnglish() ? 'How we can help' : 'Como podemos ajudar' }}</p><h2 appReveal>{{ languageService.isEnglish() ? 'A whole team' : 'Um time inteiro' }}<br><em>{{ languageService.isEnglish() ? 'by your side.' : 'do seu lado.' }}</em></h2></div>
+    <p class="heading-note" appReveal>{{ languageService.isEnglish() ? 'From the first sketch to the result that impacts your business, we think through every touchpoint.' : 'Do primeiro rascunho ao resultado que aparece no caixa, pensamos em cada ponto de contato.' }}</p>
+  </div>
+  <div class="service-grid reveal-stagger">
+    @for (service of services(); track service.category) {
+      <article class="service-card" appReveal>
+        <span class="service-category" appReveal>{{ service.category }}</span>
+        <h3 appReveal>{{ service.title }}</h3>
+        <ul appReveal>@for (item of service.items; track item) { <li appReveal>{{ item }}</li> }</ul>
+        <span class="card-arrow" appReveal>&#8599;</span>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="process section-dark" appReveal>
+  <div class="process-heading" appReveal><p class="eyebrow eyebrow-light" appReveal><span></span> {{ languageService.isEnglish() ? 'Our process' : 'Nosso processo' }}</p><h2 appReveal>{{ languageService.isEnglish() ? 'Clarity in every' : 'Clareza em cada' }}<br><em>{{ languageService.isEnglish() ? 'step.' : 'passo.' }}</em></h2><p appReveal>{{ languageService.isEnglish() ? 'Good work happens when strategy and execution move together.' : 'Trabalho bom acontece quando estratégia e execução caminham juntas.' }}</p></div>
+  <div class="process-list reveal-stagger">
+    @for (step of process(); track step) { <div class="process-step" appReveal><strong appReveal>{{ step }}</strong><i appReveal>&#8599;</i></div> }
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio" appReveal>
+  <div class="section-heading-row" appReveal><div appReveal><p class="eyebrow" appReveal><span></span> {{ languageService.isEnglish() ? 'Selected projects' : 'Projetos selecionados' }}</p><h2 appReveal>{{ languageService.isEnglish() ? 'Made to' : 'Feito para' }}<br><em>{{ languageService.isEnglish() ? 'be seen.' : 'ser visto.' }}</em></h2></div><a class="text-link" appReveal href="#contato">{{ languageService.isEnglish() ? 'View full portfolio' : 'Ver portfólio completo' }} <span>&#8594;</span></a></div>
+  <div class="project-grid reveal-stagger">
+    @for (project of projects(); track project.url) {
+      <a class="project" appReveal [class]="project.theme" [href]="project.url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="(languageService.isEnglish() ? 'Visit project ' : 'Visitar projeto ') + project.title">
+        @if (project.image) { <img class="project-image" appReveal [src]="project.image" [alt]="(languageService.isEnglish() ? 'Project preview ' : 'Preview do projeto ') + project.title"> }
+        <span appReveal>{{ project.category }}</span>
+        <div class="project-shape" [class]="project.shape"></div>
+        <b appReveal><small>{{ languageService.isEnglish() ? 'Visit' : 'Visitar' }} &#8599;</small></b>
+      </a>
+    }
+  </div>
+</section>
+
+<section class="testimonial section-light" appReveal><p class="eyebrow" appReveal><span></span> {{ languageService.isEnglish() ? 'Who walks with us' : 'Quem caminha com a gente' }}</p><blockquote appReveal>{{ languageService.isEnglish() ? '“Nalero understood our business before thinking about the screen. The result was a digital presence that finally feels like the company we are.”' : '“A Nalero entendeu o nosso negócio antes de pensar na tela. O resultado foi uma presença digital que finalmente parece com a empresa que somos.”' }}</blockquote><p class="author" appReveal>— {{ languageService.isEnglish() ? 'Nalero client' : 'Cliente Nalero' }} <span>/</span> {{ languageService.isEnglish() ? 'Digital project' : 'Projeto digital' }}</p></section>
+
+<section class="final-cta" id="contato" appReveal><div appReveal><p class="eyebrow" appReveal><span></span> {{ languageService.isEnglish() ? 'Let’s talk' : 'Vamos conversar' }}</p><h2 appReveal>{{ languageService.isEnglish() ? 'The next project' : 'O próximo projeto' }}<br>{{ languageService.isEnglish() ? 'could be' : 'pode ser' }} <em>{{ languageService.isEnglish() ? 'yours.' : 'o seu.' }}</em></h2></div><a class="button button-yellow" appReveal href="https://wa.me/5511958520419" target="_blank" rel="noopener">{{ languageService.isEnglish() ? 'Start a conversation' : 'Começar uma conversa' }} <span>&#8599;</span></a></section>
