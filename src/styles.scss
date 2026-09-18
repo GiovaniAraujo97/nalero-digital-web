@@ -34,7 +34,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
 	transform: translate3d(0, 22px, 0);
 	transition: opacity .65s var(--ease), transform .65s var(--ease);
 	transition-delay: var(--reveal-delay, 0ms);
-	will-change: opacity, transform;
 }
 
 .reveal.is-visible,
@@ -93,6 +92,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .language-option:focus-visible { outline: 2px solid var(--yellow); outline-offset: 2px; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .header-cta { display: inline-flex; align-items: center; gap: 12px; padding: 12px 17px; background: var(--black); color: var(--white); font-size: 13px; font-weight: 700; transition: transform .25s var(--ease), background .25s ease; }
+.header-cta span { font-family: 'DM Sans', sans-serif; font-variant-emoji: text; }
 .header-cta:hover { background: #303030; transform: translateY(-2px); }
 
 .site-footer { display: flex; justify-content: space-between; gap: 30px; padding: 42px 0 34px; border-top: 1px solid var(--line); }
@@ -112,6 +112,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 @media (max-width: 800px) {
+	.reveal,
+	[appReveal] {
+		transform: translate3d(0, 10px, 0);
+		transition: opacity .45s ease, transform .45s ease;
+	}
+
 	.site-header { gap: 16px; }
 	.header-actions { margin-left: auto; padding-right: 70px; }
 	.hero { min-height: min(820px, 100svh); padding: 96px 20px 64px; gap: 36px; }

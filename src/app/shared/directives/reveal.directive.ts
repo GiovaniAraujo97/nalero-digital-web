@@ -5,7 +5,8 @@ import { AfterViewInit, Directive, ElementRef, OnDestroy, Renderer2 } from '@ang
   standalone: true,
 })
 export class RevealDirective implements AfterViewInit, OnDestroy {
-  private observer?: IntersectionObserver;
+  private static observer?: IntersectionObserver;
+  private static readonly directives = new Map<HTMLElement, RevealDirective>();
 
   constructor(
     private readonly elementRef: ElementRef<HTMLElement>,
@@ -22,23 +23,34 @@ export class RevealDirective implements AfterViewInit, OnDestroy {
       return;
     }
 
-    this.observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
+    RevealDirective.directives.set(element, this);
+    RevealDirective.observer ??= new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) {
+            continue;
+          }
 
-        this.show(element);
-        this.observer?.unobserve(element);
+          const directive = RevealDirective.directives.get(entry.target as HTMLElement);
+          directive?.show(entry.target as HTMLElement);
+          RevealDirective.observer?.unobserve(entry.target);
+        }
       },
       { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
     );
 
-    this.observer.observe(element);
+    RevealDirective.observer.observe(element);
   }
 
   ngOnDestroy(): void {
-    this.observer?.disconnect();
+    const element = this.elementRef.nativeElement;
+    RevealDirective.observer?.unobserve(element);
+    RevealDirective.directives.delete(element);
+
+    if (RevealDirective.directives.size === 0) {
+      RevealDirective.observer?.disconnect();
+      RevealDirective.observer = undefined;
+    }
   }
 
   private show(element: HTMLElement): void {

@@ -75,6 +75,7 @@ h1 em, h2 em { color: var(--yellow); font-style: normal; }
 .hero-text { max-width: 400px; margin-top: 22px; color: rgba(255, 255, 255, .8); font-size: 17px; line-height: 1.55; }
 .hero-actions { display: flex; align-items: center; gap: 26px; margin-top: 36px; }
 .button { display: inline-flex; align-items: center; gap: 22px; padding: 16px 20px; font-size: 13px; font-weight: 700; transition: transform .25s var(--ease), background .25s ease; }
+.button span, .text-link span, .item-arrow, .card-arrow, .process-step i, .project b { font-family: 'DM Sans', sans-serif; font-variant-emoji: text; }
 .button:hover { transform: translateY(-3px); }
 .button:hover, .header-cta:hover { box-shadow: 0 12px 24px rgba(17, 17, 17, .16); }
 .button-dark { background: var(--black); color: var(--white); }
