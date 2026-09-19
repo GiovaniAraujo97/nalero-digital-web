@@ -80,6 +80,28 @@
   </div>
 </section>
 
+<section class="team section-light" id="equipe" appReveal>
+  <div class="section-heading-row team-heading" appReveal>
+    <div appReveal><p class="eyebrow" appReveal><span></span> {{ languageService.isEnglish() ? 'Project leadership' : 'Liderança do projeto' }}</p><h2 appReveal>Diretoria<br><em>Nalero</em></h2></div>
+  </div>
+  <div class="team-grid reveal-stagger">
+    @for (member of teamMembers(); track member.name) {
+      <article class="team-card" appReveal>
+        <div class="team-badge" appReveal>{{ member.role }}</div>
+        <div class="team-avatar" appReveal>
+          @if (member.image) {
+            <img class="team-photo" [src]="member.image" [alt]="member.name" />
+          } @else {
+            <span>{{ member.initials }}</span>
+          }
+        </div>
+        <h3 appReveal>{{ member.name }}</h3>
+        <p class="team-specialty" appReveal>{{ member.specialty }}</p>
+      </article>
+    }
+  </div>
+</section>
+
 <section class="testimonial section-light" appReveal><p class="eyebrow" appReveal><span></span> {{ languageService.isEnglish() ? 'Who walks with us' : 'Quem caminha com a gente' }}</p><blockquote appReveal>{{ languageService.isEnglish() ? '“Nalero understood our business before thinking about the screen. The result was a digital presence that finally feels like the company we are.”' : '“A Nalero entendeu o nosso negócio antes de pensar na tela. O resultado foi uma presença digital que finalmente parece com a empresa que somos.”' }}</blockquote><p class="author" appReveal>— {{ languageService.isEnglish() ? 'Nalero client' : 'Cliente Nalero' }} <span>/</span> {{ languageService.isEnglish() ? 'Digital project' : 'Projeto digital' }}</p></section>
 
 <section class="final-cta" id="contato" appReveal><div appReveal><p class="eyebrow" appReveal><span></span> {{ languageService.isEnglish() ? 'Let’s talk' : 'Vamos conversar' }}</p><h2 appReveal>{{ languageService.isEnglish() ? 'The next project' : 'O próximo projeto' }}<br>{{ languageService.isEnglish() ? 'could be' : 'pode ser' }} <em>{{ languageService.isEnglish() ? 'yours.' : 'o seu.' }}</em></h2></div><a class="button button-yellow" appReveal href="https://wa.me/5511958520419" target="_blank" rel="noopener">{{ languageService.isEnglish() ? 'Start a conversation' : 'Começar uma conversa' }} <span>&#8599;&#65038;</span></a></section>

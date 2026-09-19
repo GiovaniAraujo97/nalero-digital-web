@@ -7,7 +7,8 @@ export class LanguageService {
   readonly language = signal<SiteLanguage>('pt-BR');
   readonly isEnglish = computed(() => this.language() === 'en');
 
-  setLanguage(language: SiteLanguage): void {
-    this.language.set(language);
+  setLanguage(language: SiteLanguage | null | undefined): void {
+    const normalized = language === 'en' ? 'en' : 'pt-BR';
+    this.language.set(normalized);
   }
 }

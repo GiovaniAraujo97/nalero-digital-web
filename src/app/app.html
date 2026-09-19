@@ -4,10 +4,10 @@
   </a>
 
   <nav class="desktop-nav" [attr.aria-label]="languageService.isEnglish() ? 'Main navigation' : 'Navegacao principal'">
-    <a appReveal href="/#servicos">{{ languageService.isEnglish() ? 'Services' : 'Serviços' }}</a>
-    <a appReveal href="/#portfolio">{{ languageService.isEnglish() ? 'Portfolio' : 'Portfolio' }}</a>
-    <a appReveal href="/#sobre">{{ languageService.isEnglish() ? 'About us' : 'Sobre nos' }}</a>
-    <a appReveal href="/#contato">{{ languageService.isEnglish() ? 'Contact' : 'Contato' }}</a>
+    <a appReveal href="/#servicos">{{ languageService.isEnglish() ? 'SERVICES' : 'SERVIÇOS' }}</a>
+    <a appReveal href="/#portfolio">{{ languageService.isEnglish() ? 'PORTFOLIO' : 'PORTFÓLIO' }}</a>
+    <a appReveal href="/#sobre">{{ languageService.isEnglish() ? 'ABOUT US' : 'SOBRE NÓS' }}</a>
+    <a appReveal href="/#contato">{{ languageService.isEnglish() ? 'CONTACT' : 'CONTATO' }}</a>
   </nav>
 
   <div class="header-actions">
@@ -31,14 +31,44 @@
 </main>
 
 <footer class="site-footer" appReveal>
-  <div class="footer-brand" appReveal>
-    <a class="brand" appReveal href="/">
-      <img class="brand-logo" appReveal src="/logo.png" alt="Nalero Digital">
-    </a>
-    <p appReveal>{{ languageService.isEnglish() ? 'Digital presence designed for businesses ready to move forward.' : 'Presença digital pensada para negócios que querem avançar.' }}</p>
+  <div class="footer-top">
+    <div class="footer-brand" appReveal>
+      <a class="brand" appReveal href="/">
+        <img class="brand-logo" appReveal src="/logo.png" alt="Nalero Digital">
+      </a>
+      <p appReveal>{{ languageService.isEnglish() ? 'Digital presence designed for businesses ready to move forward.' : 'Presença digital pensada para negócios que querem avançar.' }}</p>
+      <a class="footer-cta" appReveal href="https://wa.me/5511958520419" target="_blank" rel="noopener">
+        {{ languageService.isEnglish() ? 'Talk to an expert' : 'Falar com especialista' }} <span aria-hidden="true">↗</span>
+      </a>
+
+    </div>
+
+    <div class="footer-links" appReveal>
+      <div>
+        <h3>{{ languageService.isEnglish() ? 'Navigate' : 'Navegação' }}</h3>
+        <a href="/#servicos">{{ languageService.isEnglish() ? 'Services' : 'Serviços' }}</a>
+        <a href="/#portfolio">{{ languageService.isEnglish() ? 'Portfolio' : 'Portfolio' }}</a>
+        <a href="/#sobre">{{ languageService.isEnglish() ? 'About us' : 'Sobre nós' }}</a>
+        <a href="/#contato">{{ languageService.isEnglish() ? 'Contact' : 'Contato' }}</a>
+      </div>
+
+      <div>
+        <h3>{{ languageService.isEnglish() ? 'Focus' : 'Foco' }}</h3>
+        <span>{{ languageService.isEnglish() ? 'Brand strategy' : 'Estratégia de marca' }}</span>
+        <span>{{ languageService.isEnglish() ? 'Web design' : 'Design de sites' }}</span>
+        <span>{{ languageService.isEnglish() ? 'Performance' : 'Performance' }}</span>
+        <span>{{ languageService.isEnglish() ? 'Conversion' : 'Conversão' }}</span>
+      </div>
+    </div>
   </div>
-  <div class="footer-meta" appReveal>
-    <span appReveal>{{ languageService.isEnglish() ? 'Websites, brands and performance.' : 'Websites, marcas e performance.' }}</span>
-    <span appReveal>© 2026 Nalero Digital</span>
+
+  <div class="footer-bottom" appReveal>
+    <div class="footer-legal">
+      <span>© 2026 Nalero Digital</span>
+      <span>CNPJ: 53.636.333/0001-78</span>
+    </div>
+    <div class="footer-meta">
+      <a href="https://wa.me/5511958520419" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
   </div>
 </footer>

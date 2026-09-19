@@ -13,6 +13,10 @@ export class App {
   protected readonly title = signal('nalero-digital');
   protected readonly languageService = inject(LanguageService);
 
+  constructor() {
+    this.languageService.setLanguage('pt-BR');
+  }
+
   protected setLanguage(language: 'pt-BR' | 'en'): void {
     this.languageService.setLanguage(language);
   }

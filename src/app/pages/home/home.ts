@@ -56,4 +56,38 @@ export class Home {
     { number: '03', category: 'Website / Saúde', title: 'Dra. Alessandra Lemes', url: 'https://draalessandralemes.vercel.app/', theme: 'project-gray', shape: 'shape-three', image: '/portfolio-draalelemes.png' },
     { number: '04', category: 'Website / Gastronomia', title: 'Big Mike Fritas', url: 'https://bigmike-fritas-p2dn.vercel.app/', theme: 'project-yellow', shape: 'shape-one', image: '/portfolio-bigmikebatatas.png' },
   ]);
+
+  readonly teamMembers = computed(() => this.languageService.isEnglish() ? [
+    {
+      name: 'Giovani Araujo',
+      role: 'CEO',
+      specialty: 'Front Specialist',
+      description: 'Leads the strategic direction of the brand and creates the digital experience from the first idea to final execution.',
+      initials: 'GA',
+      image: '/img-giovani.png',
+    },
+    {
+      name: 'Cosme de Assis',
+      role: 'CTO',
+      specialty: 'Quality of Software Specialist',
+      description: 'Shapes the technical quality standard, validates the process and ensures every delivery is stable, clean and scalable.',
+      initials: 'CA',
+      image: '/img-cosme.jpg',
+    },
+  ] : [
+    {
+      name: 'Giovani Araujo',
+      role: 'CEO',
+      specialty: 'Especialista em Engenharia de Software',
+      initials: 'GA',
+      image: '/img-giovani.png',
+    },
+    {
+      name: 'Cosme de Assis',
+      role: 'CTO',
+      specialty: 'Especialista em Qualidade de Software',
+      initials: 'CA',
+      image: '/img-cosme.jpg',
+    },
+  ]);
 }
